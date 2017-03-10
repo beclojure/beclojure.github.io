@@ -1,1 +1,11 @@
-# beclojure.github.io
+# Belgium Clojure User Group
+
+## Welcome
+
+We are a group interested in promoting the Clojure ecosystem in Belgium.
+
+We have regular in-person meetups featuring :pizza:, :coffee:, :tea: and - it's Belgium - some :beers:
+
+There is a Slack channel to keep in touch at other times
+
+
