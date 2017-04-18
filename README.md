@@ -2,9 +2,9 @@
 
 ## Welcome
 
-We are a group interested in promoting the Clojure ecosystem in Belgium.
+We are a group of human people interested in promoting the Clojure ecosystem in Belgium.
 
-We have regular in-person meetups featuring :pizza:, :coffee:, :tea: and - it's Belgium - some :beers:
+We have regular in-person meetups featuring pizza, coffee, tea and - it's Belgium - some beers
 
 There is a Slack channel to keep in touch at other times
 
