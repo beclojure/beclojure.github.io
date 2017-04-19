@@ -27,8 +27,42 @@ powered by the <a href="https://github.com/viebel/klipse">klipse plugin</a>:</p>
 </ol>
 
 <pre><code class="klipse" >
-(+ 1 2)
+(+ 1 2 3 4)
 </code></pre>
+
+<p>The above code is the a minimal but complete program in Clojure!</p>
+
+<p>Clojure code is always in the form of a list within parentheses:</p>
+
+<p><strong>( function [one or more arguments] )</strong></p>
+
+<p>In the live example above, we have the function '+' and the arguments 1, 2, 3 and 4. The +, like the other maths functions, acts accumulatively. Maths functions are not operators baked into the language. You can try some others: -, /, *</p>
+
+<pre><code class="klipse" >
+(<= 1 2 3 4)
+</code></pre>
+
+<p>Like in other languages, many functions behave appropriately with specific arguments</p>
+
+<pre><code class="klipse" data-loop-msec="1000">
+(rand 1000)
+</code></pre>
+
+The code evaluator has a magic trick where it can be put on a loop :)
+
+<pre><code class="klipse" data-loop-msec="1000">
+(map #(rand %) (range 1 4))
+</code></pre>
+
+<strong>map</strong> is an example of a function that operates on a sequence. Reading from right to left <strong>range</strong> produces a list of numbers from 1 to 3. #(rand %) is a shortcut to call rand with the argument (%).
+
+<p>more</p>
+<p>more</p>
+<p>more</p>
+<p>more</p>
+<p>more</p>
+<p>more</p>
+<p>more</p>
 
 <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
 
@@ -42,6 +76,6 @@ powered by the <a href="https://github.com/viebel/klipse">klipse plugin</a>:</p>
     }
 </script>
 <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
-  
+
 </body>
 </html>
