@@ -4,42 +4,87 @@ layout: default
 
 <p>Welcome to Clojure in Belgium ... why not start with a little Clojure right now...</p>
 
+<p>The venerable SICP tells us
+  <blockquote>A powerful programming language is more than just a means for instructing a computer to perform tasks. The language also serves as a framework within which we organize our ideas about processes. Thus, when we describe a language, we should pay particular attention to the means that the language provides for combining simple ideas to form more complex ideas. Every powerful language has three mechanisms for accomplishing this:
+    <ul>
+        <li><strong>primitive expressions</strong>, which represent the simplest entities the language is concerned with,</li>
+        <li><strong>means of combination</strong>, by which compound elements are built from simpler ones, and</li>
+        <li><strong>means of abstraction</strong>, by which compound elements can be named and manipulated as units.</li>
+    </ul>
+  </blockquote>
+</p>
+
+<p>Clojure is a LISP so code is always in the form of a list within parentheses like this:</p>
+
+<p>(<strong>function</strong> <em>zero or more arguments</em>)</p>
+
+<h2>Primitive expression</h2>
+
 <pre><code class="klipse" >
 (+ 1 2 3 4)
 </code></pre>
 
-<p>The above code is the a minimal but complete program in Clojure!</p>
-
-<p>Clojure code is always in the form of a list within parentheses:</p>
-
-<p><strong>( function [one or more arguments] )</strong></p>
-
-<p>In the live example above, we have the function '+' and the arguments 1, 2, 3 and 4. The +, like the other maths functions, acts accumulatively. Maths functions are not operators baked into the language. You can try some others: -, /, *</p>
+<p>In this first example, we have the function '+' and the arguments 1, 2, 3 and 4. The +, like the other maths functions, acts accumulatively. Logic can operate in the same way:</p>
 
 <pre><code class="klipse" >
 (<= 1 2 3 4)
 </code></pre>
 
-<p>
-Like other languages, many functions in Clojure also have specific arguments
-</p>
+<h2>Means of combination</h2>
 
-<pre><code class="klipse" data-loop-msec="1000">
-(rand 1000)
+<p>Functions are combined by nesting them in lists. They are evaluated from the inside out:</p>
+
+<pre><code class="klipse" data-loop-msec="3000">
+(+ 10001 (rand 10))
 </code></pre>
 
-<p>
-The code evaluator has a magic trick where it can be put on a loop :)
-</p>
+<p>In this case the rand function returns a number and the + function then evaluates. This browser based evaluator has a magic trick where it can be put on a loop :)</p>
 
-<pre><code class="klipse" data-loop-msec="1000">
-(map #(rand %) (range 1 4))
+<pre><code class="klipse" data-loop-msec="3000">
+(map (fn [n] (rand n)) (range 1 4))
 </code></pre>
 
-<p>
-<strong>map</strong> is an example of a function that operates on a sequence. Reading from right to left <strong>range</strong> produces a list of numbers from 1 to 3. #(rand %) is a shortcut to call rand with the argument (%).
-</p>
+<p><strong>map</strong> is an example of combining functions over a sequence. <strong>map</strong> take a function followed by a sequence, on which that function will apply to each element of the sequence in turn.</p>
+<p>Evaluation occurs from <em>the deepest nested list and then from right to left</em>. Reading from right to left the <strong>range</strong> function is evaluated and produces a list of numbers from 1 to 3.</p>
+<p>The anonymous function <em>(fn [n] (rand n))</em> is invoked by map for each element and a radom number up to each value of <em>n</em> is produced. By default map produces a <em>lazy sequence</em> of all of its results. This means that when <strong>map</strong> is composed with other functions, the dependent function is fluid: it can operate on the next output element as soon as it is produced.</p>
 
+<h2>Means of abstraction</h2>
+
+<p>We already saw an anonymous function but abstraction comes from being able to name functions and call them ourselves. </p>
+
+<pre><code class="klipse" >
+(defn greet [person]
+  (println "Hello" person))
+</code></pre>
+
+<pre><code class="klipse">
+(map #(greet %) ["Ray" "Stijn" "Rich"])
+</code></pre>
+
+<p>It's so <strong>simple</strong> to combine our own made functions with the standard functions without any further ceremony. You have probably worked out that <em>#(greet %)</em> is an even shorter shortcut to the anonymous function that we used earlier.</p>
+
+<h2>Learning Resources</h2>
+
+<p>This was a trivial taster of the joys of Clojure. Here are some curated links to quality resources that will help you along the way, whilst waiting for the next meetup!</p>
+
+<h3>Clojurian Slack</h3>
+plus bg channel
+
+<h3>YouTube</h3>
+CognitectTV
+
+<h3>Online learning</h3>
+
+<h3>Podcasts</h3>
+:)
+
+<h3>Guides from Cognitect</h3>
+
+
+<h3>Documentation and hints</h3>
+Clojure-docs
+
+<p>TODO ... move the posts into the left or right side of the page</p>
 <div>
   <h1 class="page-heading">Posts</h1>
 
