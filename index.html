@@ -26,7 +26,7 @@ layout: default
 <p><strong>Note: all of the code examples are live and interactive - and can be edited by you</strong></p>
 
 <pre><code class="klipse">
-(+ 1 2 3 4)
+    (+ 1 2 3 4)
 </code></pre>
 
 <p>Clojure is a LISP so code is always in the form of a list within parentheses like this:</p>
@@ -37,7 +37,7 @@ layout: default
     functions, acts accumulatively. Logic can operate in the same way:</p>
 
 <pre><code class="klipse">
-(<= 1 2 3 4)
+    (<= 1 2 3 4)
 </code></pre>
 
 <h2>Means of combination</h2>
@@ -45,14 +45,14 @@ layout: default
 <p>Functions are combined by nesting them in lists. They are evaluated from the inside out:</p>
 
 <pre><code class="klipse" data-loop-msec="3000">
-(+ 10001 (rand 10))
+    (+ 10001 (rand 10))
 </code></pre>
 
 <p>In this case the rand function returns a number and the + function then evaluates. This browser based evaluator has a
     magic trick where it can be put on a loop - your edits will be in the loop too :)</p>
 
 <pre><code class="klipse" data-loop-msec="3000">
-(map (fn [n] (rand n)) (range 1 4))
+    (map (fn [n] (rand n)) (range 1 4))
 </code></pre>
 
 <p><strong>map</strong> is an example of combining functions over a sequence. <strong>map</strong> take a function
@@ -70,11 +70,11 @@ layout: default
     ourselves.</p>
 
 <pre><code class="klipse">
-(defn greet [you] (str "Hello " you))
+    (defn greet [you] (str "Hello " you))
 </code></pre>
 
 <pre><code class="klipse" data-loop-msec="3000">
-(map #(greet %) (take (rand 3) ["Belgium" "Vlanderen" "Wallonie"]))
+    (map #(greet %) (take (rand 3) ["Belgium" "Vlanderen" "Wallonie"]))
 </code></pre>
 
 <p>It's so <strong>simple</strong> to combine our own made functions with the standard functions without any further
