@@ -2,33 +2,41 @@
 layout: default
 ---
 
-<p>Welcome to Clojure in Belgium ... why not start with a little Clojure right now...</p>
-
-<p>The venerable SICP tells us
-  <blockquote>A powerful programming language is more than just a means for instructing a computer to perform tasks. The language also serves as a framework within which we organize our ideas about processes. Thus, when we describe a language, we should pay particular attention to the means that the language provides for combining simple ideas to form more complex ideas. Every powerful language has three mechanisms for accomplishing this:
-    <ul>
-        <li><strong>primitive expressions</strong>, which represent the simplest entities the language is concerned with,</li>
-        <li><strong>means of combination</strong>, by which compound elements are built from simpler ones, and</li>
-        <li><strong>means of abstraction</strong>, by which compound elements can be named and manipulated as units.</li>
-    </ul>
-  </blockquote>
+<p>Welcome to Clojure in Belgium ... let's start with a little Clojure that exemplifies what the venerable <a
+        href="https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html">SICP</a> tells us
+    <blockquote cite="https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html">
+<p>A powerful programming language is more than just a means for instructing a computer to perform tasks. The
+    language also serves as a framework within which we organize our ideas about processes. Thus, when we describe a
+    language, we should pay particular attention to the means that the language provides for combining simple ideas to
+    form more complex ideas. Every powerful language has three mechanisms for accomplishing this:
+<ul>
+    <li><strong>primitive expressions</strong>, which represent the simplest entities the language is concerned
+        with,
+    </li>
+    <li><strong>means of combination</strong>, by which compound elements are built from simpler ones, and</li>
+    <li><strong>means of abstraction</strong>, by which compound elements can be named and manipulated as units.
+    </li>
+</ul>
+</p>
+</blockquote>
 </p>
 
-<p>Clojure is a LISP so code is always in the form of a list within parentheses like this:</p>
-
-<p>(<strong>function</strong> <em>zero or more arguments</em>)</p>
-
-<h2>Primitive expression</h2>
+<h2>Primitive expressions</h2>
 
 <p><strong>Note: all of the code examples are live and interactive - and can be edited by you</strong></p>
 
-<pre><code class="klipse" >
+<pre><code class="klipse">
 (+ 1 2 3 4)
 </code></pre>
 
-<p>In this first example, we have the function '+' and the arguments 1, 2, 3 and 4. The +, like the other maths functions, acts accumulatively. Logic can operate in the same way:</p>
+<p>Clojure is a LISP so code is always in the form of a list within parentheses like this:</p>
 
-<pre><code class="klipse" >
+<p>(<strong>function</strong><em>zero or more arguments</em>)</p>
+
+<p>In this first example, we have the function '+' and the arguments 1, 2, 3 and 4. The +, like the other maths
+    functions, acts accumulatively. Logic can operate in the same way:</p>
+
+<pre><code class="klipse">
 (<= 1 2 3 4)
 </code></pre>
 
@@ -40,21 +48,28 @@ layout: default
 (+ 10001 (rand 10))
 </code></pre>
 
-<p>In this case the rand function returns a number and the + function then evaluates. This browser based evaluator has a magic trick where it can be put on a loop :)</p>
+<p>In this case the rand function returns a number and the + function then evaluates. This browser based evaluator has a
+    magic trick where it can be put on a loop :)</p>
 
 <pre><code class="klipse" data-loop-msec="3000">
 (map (fn [n] (rand n)) (range 1 4))
 </code></pre>
 
-<p><strong>map</strong> is an example of combining functions over a sequence. <strong>map</strong> take a function followed by a sequence, on which that function will apply to each element of the sequence in turn.</p>
-<p>Evaluation occurs from <em>the deepest nested list and then from right to left</em>. Reading from right to left the <strong>range</strong> function is evaluated and produces a list of numbers from 1 to 3.</p>
-<p>The anonymous function <em>(fn [n] (rand n))</em> is invoked by map for each element and a radom number up to each value of <em>n</em> is produced. By default map produces a <em>lazy sequence</em> of all of its results. This means that when <strong>map</strong> is composed with other functions, the dependent function is fluid: it can operate on the next output element as soon as it is produced.</p>
+<p><strong>map</strong> is an example of combining functions over a sequence. <strong>map</strong> take a function
+    followed by a sequence, on which that function will apply to each element of the sequence in turn.</p>
+<p>Evaluation occurs from <em>the deepest nested list and then from right to left</em>. Reading from right to left the
+    <strong>range</strong> function is evaluated and produces a list of numbers from 1 to 3.</p>
+<p>The anonymous function <em>(fn [n] (rand n))</em> is invoked by map for each element and a radom number up to each
+    value of <em>n</em> is produced. By default map produces a <em>lazy sequence</em> of all of its results. This means
+    that when <strong>map</strong> is composed with other functions, the dependent function is fluid: it can operate on
+    the next output element as soon as it is produced.</p>
 
 <h2>Means of abstraction</h2>
 
-<p>We already saw an anonymous function but abstraction comes from being able to name functions and call them ourselves. </p>
+<p>We already saw an anonymous function but abstraction comes from being able to name functions and call them
+    ourselves. </p>
 
-<pre><code class="klipse" >
+<pre><code class="klipse">
 (defn greet [person]
   (println "Hello" person))
 </code></pre>
@@ -63,56 +78,60 @@ layout: default
 (map #(greet %) ["Ray" "Stijn" "Rich"])
 </code></pre>
 
-<p>It's so <strong>simple</strong> to combine our own made functions with the standard functions without any further ceremony. You have probably worked out that <em>#(greet %)</em> is an even shorter shortcut to the anonymous function that we used earlier.</p>
+<p>It's so <strong>simple</strong> to combine our own made functions with the standard functions without any further
+    ceremony. You have probably worked out that <em>#(greet %)</em> is an even shorter shortcut to the anonymous
+    function that we used earlier.</p>
 
 <h2>Learning Resources</h2>
 
-<p>This was a trivial taster of the joys of Clojure. Here are some curated links to quality resources that will help you along the way, whilst waiting for the next meetup!</p>
+<p>This was a trivial taster of the joys of Clojure. Here are some curated links to quality resources that will help you
+    along the way, whilst waiting for the next meetup!</p>
+
+<h3>Cognitect</h3>
+<ul>
+    <li><a href="https://clojure.org/">The Clojure mother ship on the web</a></li>
+    <li><a href="https://clojure.org/guides/getting_started">Getting Started Guide</a></li>
+</ul>
+
 
 <h3>Clojurian Slack</h3>
-
-<p>
-Sign up at http://clojurians.net/ and join the #clojure-belgium channel
-</p>
+<ul>
+    <li><a href="http://clojurians.net/">Sign up and join the #clojure-belgium channel</a></li>
+</ul>
 
 <h3>YouTube</h3>
-CognitectTV - https://m.youtube.com/user/ClojureTV
-Dutch Clojure Days - https://m.youtube.com/playlist?list=PLjzcwcP9P2Lc1ECd6sG0F4TnUVQBdYbmX
-Clojutre - https://m.youtube.com/playlist?list=PLetHPRQvX4a_jQjvn54Q-d1WYZ52nDfnT
+<ul>
+    <li><a href="https://www.youtube.com/user/ClojureTV">CognitectTV</a></li>
+    <li><a href="https://www.youtube.com/playlist?list=PLjzcwcP9P2Lc1ECd6sG0F4TnUVQBdYbmX">Dutch Clojure Days</a></li>
+    <li><a href="https://www.youtube.com/playlist?list=PLetHPRQvX4a_jQjvn54Q-d1WYZ52nDfnT">Clojutre</a></li>
+</ul>
+
 
 <h3>Online learning</h3>
-Belgium's own Arne Brasseur - https://lambdaisland.com/
-Eric Normand's https://purelyfunctional.tv/
-Brave Clojure - http://www.braveclojure.com/
-Aphyr's Clojure from the Ground Up - https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome
+
+<h4>Training</h4>
+<ul>
+    <li><a href="https://lambdaisland.com/">Lambda Island from Belgium's own Arne Brasseur</a></li>
+    <li><a href="https://purelyfunctional.tv/">Eric Normand's Purely Functional TV</a></li>
+</ul>
+
+<h4>Books</h4>
+<ul>
+    <li><a href="http://www.braveclojure.com/">Brave Clojure</a></li>
+    <li><a href="https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome">Aphyr's Clojure from the Ground Up</a>
+    </li>
+</ul>
+
 
 <h3>Podcasts</h3>
-Cognitect - http://blog.cognitect.com/cognicast
-Defn - defn.audio
+<ul>
+    <li><a href="http://blog.cognitect.com/cognicast">The Cognicast from Cognitect</a></li>
+    <li><a href="https://defn.audio">Defn: featuring hosts in Belgium and Netherlands</a></li>
+</ul>
 
-<h3>Guides from Cognitect</h3>
-The Clojure mother ship on the web - https://clojure.org/
-Guides - https://clojure.org/guides/getting_started
 
-<h3>Documentation and hints</h3>
-Clojure docs - https://clojuredocs.org/
-
-<p>TODO ... move the posts into the left or right side of the page</p>
-<div>
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<h3>Community built documentation</h3>
+<ul>
+    <li><a href="https://clojuredocs.org/">Clojure docs</a></li>
+    <li><a href="http://www.4clojure.com/">4Clojure - online exercises</a></li>
+</ul>
