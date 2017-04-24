@@ -67,32 +67,33 @@ layout: default
 <h2>Means of abstraction</h2>
 
 <p>We already saw an anonymous function but abstraction comes from being able to name functions and call them
-    ourselves. </p>
+    ourselves.</p>
 
 <pre><code class="klipse">
 (defn greet [person]
-  (println "Hello" person))
+  (str "Hello " person))
 </code></pre>
 
-<pre><code class="klipse">
-(map #(greet %) ["Ray" "Stijn" "Rich"])
+<pre><code class="klipse" data-loop-msec="3000">
+(map #(greet %) (take (rand 3) ["Belgium" "Vlanderen" "Wallonie"]))
 </code></pre>
 
 <p>It's so <strong>simple</strong> to combine our own made functions with the standard functions without any further
-    ceremony. You have probably worked out that <em>#(greet %)</em> is an even shorter shortcut to the anonymous
-    function that we used earlier.</p>
+    ceremony. You have probably worked out that <em>#(greet %)</em> is a shortcut to the anonymous
+    function that we used with <strong>map</strong> earlier and % is the placeholder for the value on each iteration.
+</p>
 
-<h2>Learning Resources</h2>
+<h2>Now you're hooked - here's some more stuff!</h2>
 
-<p>This was a trivial taster of the joys of Clojure. Here are some curated links to quality resources that will help you
+<p>This has been a trivial taster of the joys of Clojure. Here are a small set of curated links to quality resources
+    that will help you
     along the way, whilst waiting for the next meetup!</p>
 
 <h3>Cognitect</h3>
 <ul>
-    <li><a href="https://clojure.org/">The Clojure mother ship on the web</a></li>
+    <li><a href="https://clojure.org/">Home to the Clojure mother ship on the web</a></li>
     <li><a href="https://clojure.org/guides/getting_started">Getting Started Guide</a></li>
 </ul>
-
 
 <h3>Clojurian Slack</h3>
 <ul>
@@ -105,7 +106,6 @@ layout: default
     <li><a href="https://www.youtube.com/playlist?list=PLjzcwcP9P2Lc1ECd6sG0F4TnUVQBdYbmX">Dutch Clojure Days</a></li>
     <li><a href="https://www.youtube.com/playlist?list=PLetHPRQvX4a_jQjvn54Q-d1WYZ52nDfnT">Clojutre</a></li>
 </ul>
-
 
 <h3>Online learning</h3>
 
@@ -122,13 +122,11 @@ layout: default
     </li>
 </ul>
 
-
 <h3>Podcasts</h3>
 <ul>
     <li><a href="http://blog.cognitect.com/cognicast">The Cognicast from Cognitect</a></li>
     <li><a href="https://defn.audio">Defn: featuring hosts in Belgium and Netherlands</a></li>
 </ul>
-
 
 <h3>Community built documentation</h3>
 <ul>
