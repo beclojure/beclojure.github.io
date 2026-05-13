@@ -4,13 +4,13 @@ title: About
 permalink: /about/
 ---
 
-You can find more about the in person meet-ups at [meetup.com][clj-meetup]
+You can find more about the in person meet-ups at [Mobilizon](https://mobilizon.fr/@beclojure)
 
 The organisers are
 
 
 <div class="footer-col footer-col-2">
-Stijn Opheid
+Stijn Opheide
 
   <ul class="social-media-list">
     <li>
@@ -35,5 +35,16 @@ Ray McDermott
   </ul>
 </div>
 
+<div class="footer-col footer-col-2">
+Arne Brasseur
 
-[clj-meetup]: https://www.meetup.com/BeClojure/
+  <ul class="social-media-list">
+    <li>
+      {% include icon-github.html username="plexus" %}
+    </li>
+    <li>
+      {% include icon-mastodon.html url="https://toot.cat/@plexus" username="plexus" %}
+    </li>
+  </ul>
+</div>
+
