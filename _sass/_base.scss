@@ -202,6 +202,9 @@ pre {
         path {
             fill: $grey-color;
         }
+        path.text {
+            fill: $grey-color-light;
+        }
     }
 }
 
